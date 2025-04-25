@@ -54,8 +54,8 @@ function moreDetails() {
   if (!lastSearchedCountry) {
     return alert("Please search for a country first!");
   }
-
-  const key = "0710a29726464b9f86a35405240312";
+            // 0710a29726464b9f86a35405240312
+  const key = "ef7e2b82882848339e854550252504";
   const city = lastSearchedCountry;
   const url = `https://api.weatherapi.com/v1/current.json?key=${key}&q=${city}&aqi=no`;
 
