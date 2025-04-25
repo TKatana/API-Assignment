@@ -61,7 +61,7 @@ nav button:hover {
 
 /* Left Column: Country Info */
 .innerDivStyle {
-  background-color: #ffffff; /* Clean white background */
+  background-color: #bac0d7; /* Clean white background */
   padding: 25px;
   border-radius: 15px; /* Rounded corners */
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
@@ -101,7 +101,7 @@ nav button:hover {
 
 /* Right Column: Weather Info */
 #weatherInfo {
-  background-color: #ffffff;
+  background-color: #bac0d7;
   padding: 25px;
   border-radius: 15px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -116,7 +116,7 @@ nav button:hover {
 #weatherInfo:hover {
   transform: translateY(-6px);
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
-  background: #f1f8ff; /* Light blue background on hover */
+  
   border-color: #64b5f6;
 }
 

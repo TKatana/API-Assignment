@@ -2,7 +2,7 @@ function connect() {
   const searchTerm = document.getElementById("searchBox").value.trim();
   document.getElementById("searchBox").value = "";
   lastSearchedCountry = searchTerm;
-  document.getElementById("displayArea").innerHTML = ""; // Clear previous content
+  document.getElementById("displayArea").innerHTML = ""; 
   fetch(`https://restcountries.com/v3.1/name/${searchTerm}?fullText=true`)
     .then((res) => res.json())
     .then(showInBrowser);
@@ -24,12 +24,11 @@ function showInBrowser(data) {
       flags,
     } = country;
 
-    // Create a new div for each country (Left Column)
     let countryDiv = document.createElement("div");
     countryDiv.classList.add("innerDivStyle");
 
     countryDiv.innerHTML = `
-      <h3>COUNTRY: ${common}</h3><br>
+      <h3>Country: ${common}</h3><br>
       Official Name: ${official}<br>
       Region: ${region}<br>
       Capital: ${capital?.[0] || "No capital available"}<br>
@@ -43,18 +42,14 @@ function showInBrowser(data) {
         <button onclick="moreDetails()">More Details</button>
       </div>
     `;
-
-    // Create a new div for weather details (Right Column)
     let weatherDiv = document.createElement("div");
     weatherDiv.id = "weatherInfo";
-    weatherDiv.style.display = "none"; // Hide by default
+    weatherDiv.style.display = "none"; 
 
-    // Append both country div and weather div to displayArea
     displayArea.appendChild(countryDiv);
     displayArea.appendChild(weatherDiv);
   });
 }
-
 function moreDetails() {
   if (!lastSearchedCountry) {
     return alert("Please search for a country first!");
@@ -80,13 +75,9 @@ function moreDetails() {
       const precipitation = data.current.precip_mm;
       const uvIndex = data.current.uv;
       const visibility = data.current.vis_km;
-
       const displayArea = document.getElementById("displayArea");
 
-      // Select the weather info div (the second div appended for each country)
       const weatherDiv = displayArea.querySelector("#weatherInfo");
-
-      // Fill the weather information
       weatherDiv.innerHTML = `
         <strong>Weather Information</strong>
         <img src="${weatherIcon}" alt="Weather Icon" style="vertical-align: middle;"> <br>
@@ -103,8 +94,6 @@ function moreDetails() {
         Visibility: ${visibility} km <br>
         UV Index: ${uvIndex} <br>
       `;
-
-      // Show the weather details div
       weatherDiv.style.display = "block";
     })
     .catch((error) => {
@@ -112,3 +101,11 @@ function moreDetails() {
       alert("Failed to fetch weather data.");
     });
 }
+document.getElementById("searchBox").addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    connect(); // Call the connect function to fetch data
+
+  }
+});
+document.getElementById('year').textContent = new Date().getFullYear();
